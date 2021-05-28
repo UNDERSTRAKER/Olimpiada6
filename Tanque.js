@@ -20,11 +20,6 @@ class Tanque {
             this.fe[index].mover();
         }
  
-       /* if (this.bala != null){
-
-            this.bala.pintar();
-            this.bala.mover(this.x,this.y);
-        }*/
 
     }
 
@@ -56,12 +51,6 @@ class Tanque {
     getFe() {
         return this.fe;
     }
-   /* disparar(){
-        //if(mouseIsPressed){
-            bala = new Bala(this.x + 18,this.y - 30);
 
-        //}
-    }*/
-        
 
 }

@@ -62,18 +62,7 @@ class Marcianitos{
 	getVida() {
 		return this.vida;
 	}
-	/*validaBala(xBala,yBala){
-
-		if (xBala > this.x && xBala < this.x + 47 && yBala > this.y && yBala < this.y + 47) {
-			
-			this.vida = 0;
-
-			return true;
-		}
-
-		return false;
-
-	}*/
+	
 
 
 }

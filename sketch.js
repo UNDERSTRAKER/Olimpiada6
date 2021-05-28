@@ -55,7 +55,5 @@ function validarDisparoMarciano(mar, bala) {
   }
   return false;
 }
-/*function mousePressed() {
-  tanque.disparar();
-}*/
+
 
