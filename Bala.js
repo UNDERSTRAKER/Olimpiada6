@@ -12,4 +12,12 @@ class Bala{
     mover(){
         this.y -= 4;
     }
+
+    getX() {
+        return this.x;
+    }
+
+    getY() {
+        return this.y;
+    }
 }

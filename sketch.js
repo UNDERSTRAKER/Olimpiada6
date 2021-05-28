@@ -12,7 +12,7 @@ let mar4 = new Marcianitos(665,300);
 let mar5 = new Marcianitos(340,450);
 let mar6 = new Marcianitos(470,450);
 let mar7 = new Marcianitos(600,450);
-
+const marcianos = [mar1, mar2, mar3, mar4, mar5, mar6, mar7];
 
 function setup() {
   createCanvas(1000, 1000);
@@ -22,27 +22,40 @@ function draw() {
   background(0);
   tanque.mostrar();
 
-  if(disparado == true)
-    mar1.mostrar();
-  if(disparado == true)
-    mar2.mostrar();
-  if(disparado == true)
-   mar3.mostrar();
-  if(disparado == true)
-    mar4.mostrar();
-  if(disparado == true)
-    mar5.mostrar();
-  if(disparado == true)
-    mar6.mostrar();
-  if(disparado == true)
-    mar7.mostrar();
+  /* mar1.mostrar();
+  mar2.mostrar();
+  mar3.mostrar();
+  mar4.mostrar();
+  mar5.mostrar();
+  mar6.mostrar();
+  mar7.mostrar(); */
   tanque.mover();
+  
+  tanque.sumarVelDisparo();
 
+  marcianos.forEach(function(mar) {
+    mar.mostrar();
+    tanque.getFe().forEach(function(bala, index) {
+      if(mar.getVida()>0 && validarDisparoMarciano(mar, bala)) {
+        mar.setVida(0);
+        tanque.getFe().splice(index, 1);
+      }
+    });
+  });
 
-  if (dist( this.mar1 < this.bala) &&  disparado == true) {
-    disparado = false;
-    console.log("sirve");
-  }
+  
+ 
   
 }
+
+function validarDisparoMarciano(mar, bala) {
+  if(mar.getX()-15 < bala.getX() && mar.getX()+40 > bala.getX()
+  && mar.getY()-10 < bala.getY() && mar.getY()+30 > bala.getY()) {
+    return true;
+  }
+  return false;
+}
+/*function mousePressed() {
+  tanque.disparar();
+}*/
 

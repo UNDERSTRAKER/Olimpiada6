@@ -2,9 +2,9 @@ class Tanque {
     constructor(x,y) {
         this.x = 460;
         this.y = 900;
-        //this.bala = new Bala(this.x,this.y);
+        //this.bala = new Bala();
         this.fe = []
-
+        this.velDisparo = 0;
     }
     mostrar(){
         fill(255,0,0);
@@ -19,6 +19,12 @@ class Tanque {
             this.fe[index].pintar();
             this.fe[index].mover();
         }
+ 
+       /* if (this.bala != null){
+
+            this.bala.pintar();
+            this.bala.mover(this.x,this.y);
+        }*/
 
     }
 
@@ -31,13 +37,31 @@ class Tanque {
                 case 'd':
                     this.x +=4;
                     break;
-                case 'l':
-                    this.fe.push(new Bala(this.x,this.y));
+               case 'l':
+                   if(this.velDisparo > 30) {
+                        const newBala = new Bala(this.x,this.y)
+                        this.fe.push(newBala);
+                        console.log(newBala);
+                        this.velDisparo = 0;
+                    }
                     break;
             }
         }
     }
 
-    
+    sumarVelDisparo() {
+        this.velDisparo++;
+    }
+
+    getFe() {
+        return this.fe;
+    }
+   /* disparar(){
+        //if(mouseIsPressed){
+            bala = new Bala(this.x + 18,this.y - 30);
+
+        //}
+    }*/
+        
 
 }
